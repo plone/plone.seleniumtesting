@@ -7,7 +7,7 @@ setup(name='plone.seleniumtesting',
       version=version,
       description="Selenium Testing infrastructure for Plone projects.",
       long_description=open("README.txt").read() + "\n\n" +
-                       open("CHANGES.txt").read() + "\n\n" +
+                       open("CHANGES.txt").read(),
       classifiers=[
         "Environment :: Web Environment",
         "Framework :: Plone",
@@ -21,13 +21,14 @@ setup(name='plone.seleniumtesting',
       author_email='plone-developers@lists.sourceforge.net',
       url='http://pypi.python.org/pypi/plone.seleniumtesting',
       license='GPL version 2',
+      packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['plone'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[
           'setuptools',
           'unittest2',
-          'plone.app.testing'
+          'plone.app.testing',
           'selenium',
       ],
       extras_require={
