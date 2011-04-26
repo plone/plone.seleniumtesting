@@ -1,0 +1,4 @@
+ * I don't like the way I'm registering locators. 
+    * The list setup is a bit sketchy, make objects?
+    * The "do I prepend a * to this before passing?" ambiguity is awkward
+    * Should/can these be class attributes?
