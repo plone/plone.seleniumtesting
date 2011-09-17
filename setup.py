@@ -32,5 +32,8 @@ setup(name='plone.seleniumtesting',
           'selenium',
       ],
       extras_require={
+          'test': [
+                  'plone.testing',
+              ]
       },
       )
