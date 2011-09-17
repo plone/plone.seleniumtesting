@@ -1,13 +1,14 @@
 from basepage import BasePage
 from loginoverlay import LoginOverlay
 
-from seleniumwrapper import SeleniumWrapper as wrapper
 from selenium.webdriver.common.by import By
-
+from collectionpageobject import CollectionEditPage
 
 locators = {
     "login-link": [By.ID,"personaltools-login"],
-    "edit-link": [By.ID,"personaltools-login"]
+    "edit-link": [By.ID,"personaltools-login"],
+    "add-new-type": [By.ID, "plone-contentmenu-factories"],
+    "add-new-collection": [By.ID, "topic"]
 }
 
 class HomePage(BasePage):
@@ -15,8 +16,8 @@ class HomePage(BasePage):
     PageObject for the Home page
     """
     
-    def __init__(self, portal):
-        self.se = wrapper().connection
+    def __init__(self, selenium, portal):
+        self.se = selenium
         self.portal = portal
         
     def open_default_url(self):
@@ -37,3 +38,14 @@ class HomePage(BasePage):
         """
         self.se.find_element(*locators["login"]).click()
         return LoginPage()
+
+    def add_new_collection(self):
+        """
+        Adds a new Collection content type.
+
+        ToDo: Create generic add_newType method.
+        """
+        self.se.find_element(*locators["add-new-type"]).click()
+        self.se.find_element(*locators["add-new-collection"]).click()
+        return CollectionEditPage(self.se)
+        
