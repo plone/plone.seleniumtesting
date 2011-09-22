@@ -5,8 +5,8 @@ locators = {
     'contents-tab': [By.XPATH, "//*[@id='contentview-folderContents']//a"],
     'folder-contents': [By.XPATH, "//table[@id='listing-table']//tbody/tr"],
     'content-item-checkbox': [By.XPATH, "*/input[@type='checkbox']"],
-    'cut-folder-content': [By.NAME, "folder_copy:method"],
-    'copy-folder-content': [By.NAME, "folder_cut:method"],
+    'cut-folder-content': [By.NAME, "folder_cut:method"],
+    'copy-folder-content': [By.NAME, "folder_copy:method"],
     'paste-folder-content': [By.NAME, "folder_paste:method"]
 }
 
