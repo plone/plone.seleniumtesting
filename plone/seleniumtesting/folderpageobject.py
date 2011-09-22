@@ -18,9 +18,10 @@ class FolderPageObject(object):
     def __init__(self, selenium):
         self.se = selenium
 
+        self.contents = FolderContentsTab(self.se)
+        
     def goto_contents_tab(self):
         self.se.find_element(*locators['contents-tab']).click()
-        return FolderContentsTab(self.se)
 
 
 class FolderContentsTab(BasePage):
