@@ -2,12 +2,12 @@ from basepage import BasePage
 from selenium.webdriver.common.by import By
 
 locators = {
-    'contents-tab': [By.XPATH, "//*[@id='contentview-folderContents']//a"],
-    'folder-contents': [By.XPATH, "//table[@id='listing-table']//tbody/tr"],
-    'content-item-checkbox': [By.XPATH, "*/input[@type='checkbox']"],
-    'cut-folder-content': [By.NAME, "folder_cut:method"],
-    'copy-folder-content': [By.NAME, "folder_copy:method"],
-    'paste-folder-content': [By.NAME, "folder_paste:method"]
+    "contents-tab": [By.XPATH, "//*[@id='contentview-folderContents']//a"],
+    "folder-contents": [By.XPATH, "//table[@id='listing-table']//tbody/tr"],
+    "content-item-checkbox": [By.XPATH, "*/input[@type='checkbox']"],
+    "cut-folder-content": [By.NAME, "folder_cut:method"],
+    "copy-folder-content": [By.NAME, "folder_copy:method"],
+    "paste-folder-content": [By.NAME, "folder_paste:method"]
 }
 
 
@@ -37,6 +37,10 @@ class FolderContentsTab(BasePage):
         itemCheckbox = contents[position].find_element(*locators['content-item-checkbox'])
         if not itemCheckbox.is_selected():
             itemCheckbox.click()
+
+    def numItems(self):
+        contents = self.se.find_elements(*locators['folder-contents'])
+        return len(contents)
         
     def cut(self):
         self.se.find_element(*locators['cut-folder-content']).click()
