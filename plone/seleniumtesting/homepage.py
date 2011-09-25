@@ -1,5 +1,6 @@
 from basepage import BasePage
 from loginoverlay import LoginOverlay
+from loginpage import LoginPage
 
 from selenium.webdriver.common.by import By
 from collectionpageobject import CollectionEditPage
@@ -28,7 +29,7 @@ class HomePage(BasePage):
     
     def login(self):
         self.se.find_element(*locators["login-link"]).click()
-        return LoginOverlay()
+        return LoginOverlay(self.se)
         
     def go_to_login_page(self):
         """
@@ -36,8 +37,8 @@ class HomePage(BasePage):
         
         :returns: :class:`pages.LoginPage.LoginPage`
         """
-        self.se.find_element(*locators["login"]).click()
-        return LoginPage()
+        self.se.get('%s/login_form' % self.portal.absolute_url())
+        return LoginPage(self.se)
 
     def add_new_collection(self):
         """
