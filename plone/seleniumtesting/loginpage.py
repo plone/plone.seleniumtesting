@@ -13,17 +13,20 @@ locators = {
 
 
 class UsernameElement(BaseTextElement):
-    def __init__(self):
+    def __init__(self, selenium):
+        self.se = selenium
         self.locator = locators["username"]
 
 
 class PasswordElement(BaseTextElement):
-    def __init__(self):
+    def __init__(self, selenium):
+        self.se = selenium
         self.locator = locators["password"]
 
 
 class StatusMessageTextElement(BaseTextElement):
-    def __init__(self):
+    def __init__(self, selenium):
+        self.se = selenium
         self.locator = locators["status_message"]
 
 
