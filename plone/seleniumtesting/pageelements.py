@@ -31,6 +31,10 @@ class BaseTextElement(BaseElement):
     def set(self, val):
         self.se.find_element(*self.locator).send_keys(val)
 
+    def clear(self):
+        self.se.find_element(*self.locator).clear()
+
+
 class BaseCheckboxElement(BaseElement):
     """Base element class for Checkbox fields
     """
